@@ -1,0 +1,43 @@
+<project name="GraphNim" default="dist" basedir=".">
+  <description>
+    build file for GraphNim
+  </description>
+  <!-- set global properties for this build -->
+  <property name="src" location="src"/>
+
+  <!-- <path id="proj.class.path">
+    <fileset dir="lib">
+      <include name="**/*.jar"/>
+    </fileset>
+  </path> -->
+
+  <target name="clean">
+    <delete includeEmptyDirs="true">
+      <fileset dir="bin"/>
+    </delete>
+  </target>
+
+  <target name="init">
+    <!-- Creates bin directory -->
+    <mkdir dir="bin"/>
+  </target>
+
+  <target name="compile" depends="init" description="compile the source">
+    <!-- Compile the Java code from ${src} into ${bDir} -->
+    <javac srcdir="src" destdir="bin"></javac>
+  </target>
+
+  <target name="run" depends="compile">
+      <java classname="Group" fork="true">
+	      <classpath path="bin"/>
+      </java>
+  </target>
+
+  <!-- <target name="doc" depends="init" description="generate documentation">
+    <javadoc sourcepath="${src}" destdir="${gDir}">
+	  <classpath path="${bDir}"/>
+	  <classpath refid="proj.class.path"/>
+    </javadoc>
+  </target> -->
+
+</project>

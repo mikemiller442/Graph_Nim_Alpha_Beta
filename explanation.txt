@@ -1,0 +1,57 @@
+Welcome to Graph Nim!
+
+Reminder of the rules:
+1) The game is played on a directed graph, A Cayley graph of the group.
+2) The token starts on one of the vertices, the identity of the group.
+3) You make a move by a) removing some of the stones from the current vertex
+you are at and b) choosing an adjacent vertex to move the token to. Players
+alternate turns doing this.
+4) If you enable the pass option, you can pass your turn if you have taken
+more stones than your opponent. Otherwise you must make a move (take stones and
+move the token to an adjacent vertex). If the pass option is disabled, you can
+never pass.
+5) If your opponent moves the token to a vertex with no stones on it, then you
+can't make a move because there are no stones, so you lose. However, if you can
+legally pass, you could pass and subsequently win the game.
+
+A minimal generating set S for a group G contains the fewest number of elements
+such that any element in G can be written as a product of elements in S. The
+cardinality of S is the rank of the group. Important theorems state that the
+Symmetric group and finite matrix groups have rank 2, meaning only two elements
+are needed to generate the group.
+
+A Cayley graph has a vertex set of all the group elements. The algorithm to
+construct the edges is i) for each element g in G and ii) for each element s
+in S, draw a directed edge from g to gs, where gs denotes the group
+multiplication of g and s. If you use a generating set for S, the graph will
+be connected.
+
+There are three options for groups: Abelian Groups, Symmetric Groups, and Matrix
+Groups. Here are reasons why these groups are important:
+
+1) The Fundamental Theorem of Finite Abelian Groups states that every abelian
+group is isomorphic to a direct product of cyclic groups. Because you can
+represent any such group with the code I wrote, you can play this game on any
+Abelian Group.
+
+2) Cayley's Theorem states that every group is isomorphic to a subgroup of
+some symmetric group (Sn). While you can't play on subgroups of Sn in this game,
+it is possible that learning to play this game on Sn could teach us a lot about
+how to play the game on other groups.
+
+3) Matrix Groups are important for several reasons. For one, GL(n,q) is the
+automorphism groups of abelian groups of the order q^n. In addition, the
+field of representation theory studies representing groups as matrix groups
+acting on vector spaces, so playing this game could teach us a lot about other
+groups as well if we found a correct representation.
+
+I will admit, the game is not fun for humans to play. However, I chose to make
+this game because I read a paper that proved several winning strategies for
+this game on simpler groups but left several open problems. These problems
+include all of the groups made in this game, so my intention is to try to
+use any data gathered from the bots to gain insight and prove winning strategies
+of some of these games. In addition, I would like to try to develop a machine
+that is able to play on multiple games. You mentioned that this is an active
+area of research, so I want to challenge myself to program a neural net that
+could output evaluation for several different games or even groups. So although
+my game is boring for humans, this has a lot of cool potential for AI.

@@ -1,0 +1,35 @@
+The most important thing you should note is how you can play the different
+games. In the main method of Group.java you will see where I commented
+above and below the game options. To play one of the games, set up the games
+you are interested in and comment out the other two. For example, to play the
+Symmetric Group game you can comment the Abelian game and uncomment the
+Symmetric group game. You can also change the degree to 4 to see a larger game.
+
+For example, I sent this to you with the simplest example played on the cyclic
+group of order 4. If you just compile everything with javac *.java and
+run java Group, then the game should be clear. If you want to change to a
+different Abelian Groups, you can change 1) products = new int[1];
+2) products[0] = 2; 3) products[1] = 4; 4) Group graphNim = new AbelianGroup(2,
+"Abelian", true, products); noting that the first argument changed there. I
+mentioned this in explanation.txt, but the rank for the symmetric and matrix
+groups are always 2, so don't change the first argument in those constructor
+calls. However, it will change for the Abelian groups.
+
+For the Abelian case, if you use two products make sure one divides the other.
+That way you can be sure that it actually has rank two. If you make them
+relatively prime then it will actually be a cyclic group with one generator,
+which isn't accounted for in the code.
+
+The object classes should be somewhat self-documenting. Node is an abstract
+class for each of the elements in the three groups, and the Group class
+is able to construct the graph using the abstract group operation "compose". In
+other words, even though the groups look different and have different operations,
+from a group theoretic sense multiplying elements and drawing directed edges
+is completely abstracted. However the generators of the groups must be
+constructed in the derived class because that is an implementation issue.
+
+Images are the elements you are adjacent to, using the terminology that
+multiplying by a generator can be seen as a function, and the image of that
+function is a vertex you are adjacent to.
+
+Also just ignore the build.xml file.
